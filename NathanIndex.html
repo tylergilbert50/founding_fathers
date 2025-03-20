@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founding Fathers AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Presidential Chatbot</h2>
+    
+    <label for="president">Choose a President:</label>
+    <select id="president">
+        <option value="lincoln">Abraham Lincoln</option>
+        <option value="washington">George Washington</option>
+        <option value="kennedy">John F. Kennedy</option>
+    </select>
+
+    <div id="chatbox"></div>
+
+    <input type="text" id="message-input" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        async function sendMessage() {
+            const chatbox = document.getElementById("chatbox");
+            const messageInput = document.getElementById("message-input");
+            const president = document.getElementById("president").value;
+            const userMessage = messageInput.value;
+
+            if (!userMessage) return;
+
+            // Display user message
+            chatbox.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+
+            // Send request to Flask API
+            const response = await fetch("http://127.0.0.1:5000/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ president: president, message: userMessage })
+            });
+
+            const data = await response.json();
+            chatbox.innerHTML += `<p><strong>${data.president}:</strong> ${data.response}</p>`;
+
+            messageInput.value = "";  // Clear input field
+            chatbox.scrollTop = chatbox.scrollHeight;  // Auto-scroll
+        }
+    </script>
+</body>
+</html>
+
+
