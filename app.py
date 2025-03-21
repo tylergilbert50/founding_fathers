@@ -8,7 +8,6 @@ app = Flask(__name__)
 def serve_assets(filename):
     return send_from_directory('assets', filename)
 
-# Load OpenAI API key from environment variable
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 if not OPENAI_API_KEY:
