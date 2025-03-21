@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Founding Fathers AI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <h1 class="typography">Project Founding Fathers</h1>
+
         <img id="president-image" src="{{ image_url }}" alt="President" class="president-img">
 
         <form method="POST">
@@ -17,7 +20,7 @@
             </select>
             <button type="submit">Confirm</button>
         </form>
-
+        
         <h2 id="selected-president">{{ selected_president }}</h2>
 
         <div class="chat-container">

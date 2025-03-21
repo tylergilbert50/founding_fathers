@@ -10,11 +10,14 @@ body {
 }
 
 .president-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  margin-bottom: 15px;
+  border-radius: 50%;
+  background: url("/path-to-image") no-repeat center center;
+  background-size: cover;
+  flex-shrink: 0;
 }
 
 .president-menu {
@@ -54,4 +57,14 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.typography {
+  color: #fff;
+  text-align: center;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
 }
