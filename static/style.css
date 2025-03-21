@@ -1,60 +1,58 @@
-/* Set the background color for the entire page */
 body {
-    background-color: #141414; /* Dark background */
-    display: flex; /* Center the menu on the page */
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ensure full viewport height */
-    margin: 0; /* Remove default browser margin */
+  background-color: #141414;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-/* Container for the president menu */
+.container {
+  margin-top: 50px;
+}
+
+.president-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
 .president-menu {
-    width: 179px; /* Fixed width */
-    height: 35px; /* Fixed height */
-    border: 0.6px solid white; /* Thin white border */
-    background: #3B3B3B; /* Dark gray background */
-    
-    display: flex; /* Flexbox for alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Spread text & arrow */
-    
-    padding: 0 10px; /* Add horizontal padding inside */
-    border-radius: 25px; /* Rounded corners */
-    box-sizing: border-box; /* Includes border and padding in width */
-    
-    position: relative; /* Needed for absolute positioning of arrow */
-    overflow: hidden; /* Prevent content overflow */
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #3b3b3b;
+  color: white;
 }
 
-/* Text inside the menu (President's name) */
-.president-name {
-    color: #FFF; /* White text */
-    font-family: "SF Pro", sans-serif; /* SF Pro font */
-    font-size: 15px; /* Text size */
-    font-weight: 600; /* Semi-bold */
-    
-    white-space: nowrap; /* Prevents text wrapping */
-    overflow: hidden; /* Prevents text overflow */
-    text-overflow: ellipsis; /* Adds "..." if the text is too long */
-    
-    flex: 1; /* Takes up available space */
-    text-align: left; /* Align text to the left */
+/* Chat Box */
+.chat-container {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 10px;
+  width: 300px;
+  display: inline-block;
 }
 
-/* Down arrow icon inside the menu */
-.president-menu-arrow {
-    width: 29px; /* Fixed width */
-    height: 29px; /* Fixed height */
-    flex-shrink: 0; /* Prevents shrinking */
-    
-    display: flex; /* Flexbox for alignment */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    
-    margin: 0; /* Remove default margins */
-    position: absolute; /* Position it relative to the menu */
-    right: 8px; /* Place 8px from the right edge */
-    top: 40%; /* Align vertically */
-    transform: translateY(-50%); /* Perfectly center the icon */
+#chat-box {
+  height: 200px;
+  overflow-y: auto;
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+input {
+  width: 80%;
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+  background-color: #3b3b3b;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
