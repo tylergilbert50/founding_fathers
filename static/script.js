@@ -1,18 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
   const selectElement = document.getElementById("president-select");
   const presidentImage = document.getElementById("president-image");
+  const presidentName = document.getElementById("selected-president");
+  const userInput = document.getElementById("user-input");
 
   selectElement.addEventListener("change", function () {
-    const selectedValue = selectElement.value;
-    let newImageSrc = "";
+    const selected = selectElement.value;
 
-    if (selectedValue === "lincoln") {
-      newImageSrc = "/assets/abraham_lincoln_headshot.png";
-    } else if (selectedValue === "jefferson") {
-      newImageSrc = "/assets/thomas_jefferson_headshot.png";
+    const presidentData = {
+      lincoln: {
+        name: "Abraham Lincoln",
+        image: "/assets/abraham_lincoln_headshot.png",
+      },
+      jefferson: {
+        name: "Thomas Jefferson",
+        image: "/assets/thomas_jefferson_headshot.png",
+      },
+    };
+
+    const data = presidentData[selected];
+    presidentImage.src = data.image;
+    presidentName.textContent = data.name;
+  });
+
+  // Listen for Enter key in the input field
+  userInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent form submission behavior
+      sendMessage();
     }
-
-    presidentImage.src = newImageSrc;
   });
 });
 

@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Founding Fathers AI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h1 class="typography">Project Founding Fathers</h1>
+      <h1 class="typography">Project Founding Fathers</h1>
 
-        <img id="president-image" src="{{ image_url }}" alt="President" class="president-img">
+      <img
+        id="president-image"
+        src="{{ url_for('static', filename='images/lincoln.jpg') }}"
+        alt="President"
+        class="president-img"
+      />
 
-        <form method="POST">
-            <select id="president-select" name="president" class="president-menu">
-                <option value="lincoln" {% if selected_president=="Abraham Lincoln" %}selected{% endif %}>Abraham Lincoln</option>
-                <option value="jefferson" {% if selected_president=="Thomas Jefferson" %}selected{% endif %}>Thomas Jefferson</option>
-            </select>
-            <button type="submit">Confirm</button>
-        </form>
-        
-        <h2 id="selected-president">{{ selected_president }}</h2>
+      <select id="president-select" class="president-menu">
+        <option value="lincoln">Abraham Lincoln</option>
+        <option value="jefferson">Thomas Jefferson</option>
+      </select>
 
-        <div class="chat-container">
-            <div id="chat-box"></div>
-            <input type="text" id="user-input" placeholder="Ask a question...">
-            <button onclick="sendMessage()">Send</button>
+      <h2 id="selected-president">Abraham Lincoln</h2>
+
+      <div class="chat-container">
+        <div id="chat-box"></div>
+
+        <div class="input-container">
+          <input type="text" id="user-input" placeholder="Ask a question..." />
+          <button onclick="sendMessage()">Send</button>
         </div>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+  </body>
 </html>
